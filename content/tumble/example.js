@@ -1,3 +1,3 @@
 export default () => {
-  return <h1>Example Page Two</h1>
+  return <h1>Example Page One</h1>
 }

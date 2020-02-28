@@ -6,9 +6,13 @@ function Tumble({ items }) {
   )
 }
 
+const itemNames = [
+  "example",
+  "example-2"
+]
+
 Tumble.getInitialProps = async ctx => {
-  const items = [(await import("../content/tumble/example"))]
-  console.log(items)
+  const items = await Promise.all(itemNames.map(async name => (import(`../content/tumble/${name}`))))
   return { items: items.map(i => i.default()) }
 }
 
