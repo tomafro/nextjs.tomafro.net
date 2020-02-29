@@ -1,8 +1,6 @@
 import Head from "next/head"
 import style from "../assets/css/style.scss"
 
-
-
 export default ({children}) => (
   <>
     <Head>
