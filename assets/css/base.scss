@@ -1,0 +1,102 @@
+$width: 40rem;
+$margin: 2rem;
+
+$highlight-a: rgb(180, 255, 255);
+$highlight-b: rgb(255, 255, 180);
+
+:root {
+  --colour: black;
+  --body-link-colour: black;
+  --background-colour: white;
+  --main-highlight-colour: rgb(180, 255, 255);
+  --main-highlight-colour-0: rgba(180, 255, 255, 0);
+  --second-highlight-colour: rgb(255, 255, 180);
+
+  font-size: 18px;
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --colour: white;
+//     --background-colour: black;
+//     --body-link-colour: black;
+//   }
+// }
+
+@mixin black-uppercase {
+  font-family: Rubik, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin highlighted-link {
+  background: linear-gradient(98deg, var(--main-highlight-colour-0) 0.2em, var(--main-highlight-colour) 0.6em, var(--main-highlight-colour) calc(100% - 0.6em), var(--main-highlight-colour-0) calc(100% - 0.2em));
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  margin-left: -0.30em;
+  margin-right: -0.30em;
+  border-radius: 0.1em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+
+  &:hover {
+    background: linear-gradient(98deg, rgba($highlight-b, 0) 0.2em, $highlight-b 0.6em, $highlight-b calc(100% - 0.6em), rgba($highlight-b, 0) calc(100% - 0.2em));
+    text-decoration: underline;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+body {
+  font-family: Merriweather, serif;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  color: var(--colour);
+  background-color: var(--background-colour);
+}
+
+.column {
+  max-width: $width;
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@media (min-width:#{$width + $margin + $margin}) {
+  .column {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  @include black-uppercase();
+}
+
+a {
+  @include highlighted-link();
+  @include black-uppercase();
+  margin-left: -0.50em;
+  margin-right: -0.50em;
+}
+
+main a {
+  color: var(--body-link-colour);
+}
+
+p  a  {
+  font-weight: 500;
+  background: linear-gradient(98deg, rgba($highlight-b, 0) 0.2em, $highlight-b 0.6em, $highlight-b calc(100% - 0.6em), rgba($highlight-b, 0) calc(100% - 0.2em));
+  &:hover {
+    background: linear-gradient(98deg, rgba($highlight-a, 0) 0.2em, $highlight-a 0.6em, $highlight-a calc(100% - 0.6em), rgba($highlight-a, 0) calc(100% - 0.2em));
+  }
+}
+
+pre, code {
+  font-family: "Fira Mono", monospace;
+}

@@ -1,19 +1,12 @@
-function Tumble({ items }) {
+import Layout from "../shared/layout"
+import items from "../content/tumble/items"
+
+function Tumble() {
   return (
-    <div>
-    {items}
-    </div>
+    <Layout>
+      {items}
+    </Layout>
   )
-}
-
-const itemNames = [
-  "example",
-  "example-2"
-]
-
-Tumble.getInitialProps = async ctx => {
-  const items = await Promise.all(itemNames.map(async name => (import(`../content/tumble/${name}`))))
-  return { items: items.map(i => i.default()) }
 }
 
 export default Tumble
