@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link"
 import style from "../assets/css/style.scss"
 
 export default ({children}) => (
@@ -11,9 +12,9 @@ export default ({children}) => (
     <header>
       <div className="column">
         <ul className="site-links">
-          <li><a href="/">Tom Ward</a></li>
-          <li><a href="/projects.html">projects</a></li>
-          <li><a href="/links.html">tumble</a></li>
+          <li><Link href="/">Tom Ward</Link></li>
+          <li><Link href="/projects">projects</Link></li>
+          <li><Link href="/tumble">tumble</Link></li>
         </ul>
         <ul className="social-links">
           <li><a href="https://twitter.com/tomafro"><i className="fab fa-twitter-square"></i></a></li>
