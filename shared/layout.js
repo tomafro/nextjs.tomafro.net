@@ -12,9 +12,9 @@ export default ({children}) => (
     <header>
       <div className="column">
         <ul className="site-links">
-          <li><Link href="/">Tom Ward</Link></li>
-          <li><Link href="/projects">projects</Link></li>
-          <li><Link href="/tumble">tumble</Link></li>
+          <li><Link href="/"><a href="/">Tom Ward</a></Link></li>
+          <li><Link href="/projects"><a href="/projects">projects</a></Link></li>
+          <li><Link href="/tumble"><a href="/tumble">tumble</a></Link></li>
         </ul>
         <ul className="social-links">
           <li><a href="https://twitter.com/tomafro"><i className="fab fa-twitter-square"></i></a></li>
