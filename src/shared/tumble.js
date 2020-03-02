@@ -15,7 +15,7 @@ export const SpotifySong = ({title, artist, code, children}) => {
 
 export const Lyrics = ({children}) => {
   return (
-    <div class="lyrics">
+    <div className="lyrics">
       {children}
     </div>
   )
