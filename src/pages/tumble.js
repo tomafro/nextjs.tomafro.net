@@ -5,7 +5,16 @@ function Tumble() {
   console.log(items[0])
   return (
     <Layout>
-      {items}
+      <ol className="links with-icons">
+      {items.map(item => (
+        <li>
+          <span class="fa-li"><i className={item.props.icon}></i></span>
+          <p>
+          {item}
+          </p>
+        </li>
+      ))}
+      </ol>
     </Layout>
   )
 }

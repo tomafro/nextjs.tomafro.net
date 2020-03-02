@@ -13,6 +13,10 @@ export const SpotifySong = ({title, artist, code, children}) => {
   )
 }
 
+SpotifySong.defaultProps = {
+  icon: "fad fa-music"
+}
+
 export const Lyrics = ({children}) => {
   return (
     <div className="lyrics">
