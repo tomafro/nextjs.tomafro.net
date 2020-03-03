@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "find src/data/tumble -type f -exec basename {} \\; | jq -R | jq -s > src/data/tumble.json && next build && next export",
     "start": "next start"
   },
   "dependencies": {

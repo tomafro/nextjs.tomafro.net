@@ -1,7 +1,12 @@
 import Layout from "../shared/layout"
-import items from "../content/tumble/items"
+import itemFiles from "../data/tumble.json"
+
+const items = itemFiles.map(name => {
+  return require("../data/tumble/" + name).content
+})
 
 function Tumble() {
+  console.log(items)
   return (
     <Layout>
       <ol className="links with-icons">
