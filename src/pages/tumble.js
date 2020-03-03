@@ -2,7 +2,6 @@ import Layout from "../shared/layout"
 import items from "../content/tumble/items"
 
 function Tumble() {
-  console.log(items[0])
   return (
     <Layout>
       <ol className="links with-icons">

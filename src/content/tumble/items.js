@@ -1,7 +1,8 @@
 import { SpotifySong, Lyrics } from "../../shared/tumble"
+import items from "../../../content/tumble.json"
 
 export default [
-  (<SpotifySong key="one" date="2020-02-20" artist="Benjamin Britten" title="Friday Afternoons, Op. 7: Cuckoo!" code="10740Bf8DxzA1vxDUz50OL" />),
+  (require("../../../content/tumble/first").content),
   (<SpotifySong key="two" date="2020-01-04" artist="IDLES" title="Cry To Me" code="2LT86FGKhVH7cAny5LbL13"/>),
   (<SpotifySong key="three" date="2019-11-06" artist="Baxter Dury" title="Miami" code="0uNSWaTELbjGps5dkwW83i" />),
   (
@@ -16,3 +17,6 @@ export default [
     </SpotifySong>
   ),
 ]
+
+console.log(require("../../../content/tumble/first").content)
+console.log(items)
