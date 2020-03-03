@@ -1,11 +1,7 @@
 import Layout from "../shared/layout"
 import itemFiles from "../data/tumble.json"
 
-const items = itemFiles.map(name => {
-  return require("../data/tumble/" + name).content
-})
-
-function Tumble(props) {
+function Tumble({items}) {
   return (
     <Layout>
       <ol className="links with-icons">
@@ -23,8 +19,17 @@ function Tumble(props) {
 }
 
 export async function getStaticProps() {
+  const path = await import('path')
   const fs = await import("fs")
-  return { props: {tom: "Rocks"} }
+  const util = await import('util')
+
+  const tumblePath = path.join(process.cwd(), "/src/data/tumble")
+  const readdir = util.promisify(fs.readdir);
+
+  const itemFiles = await readdir(tumblePath)
+  const items = itemFiles.map(item => require("../data/tumble/" + item).content)
+
+  return { props: {items: items} }
 }
 
 export default Tumble
