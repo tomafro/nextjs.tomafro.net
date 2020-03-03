@@ -5,13 +5,13 @@ const items = itemFiles.map(name => {
   return require("../data/tumble/" + name).content
 })
 
-function Tumble() {
+function Tumble(props) {
   return (
     <Layout>
       <ol className="links with-icons">
       {items.map(item => (
-        <li>
-          <span class="fa-li"><i className={item.props.icon}></i></span>
+        <li key={item.props.date}>
+          <span className="fa-li"><i className={item.props.icon}></i></span>
           <p>
           {item}
           </p>
@@ -20,6 +20,11 @@ function Tumble() {
       </ol>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const fs = await import("fs")
+  return { props: {tom: "Rocks"} }
 }
 
 export default Tumble
