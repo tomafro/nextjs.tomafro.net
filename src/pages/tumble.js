@@ -6,7 +6,6 @@ const items = itemFiles.map(name => {
 })
 
 function Tumble() {
-  console.log(items)
   return (
     <Layout>
       <ol className="links with-icons">
