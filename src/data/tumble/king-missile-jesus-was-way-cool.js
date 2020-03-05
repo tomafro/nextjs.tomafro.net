@@ -1,5 +1,5 @@
 import Song from "../../shared/song";
-import Lyrics from "../../shared/tumble";
+import { Lyrics } from "../../shared/tumble";
 
 export const content = (
   <Song date="2019-09-18" artist="King Missile" title="Jesus was Way Cool" code="0Tos24ah4Q1OSe1qBH9TBW">

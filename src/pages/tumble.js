@@ -1,11 +1,15 @@
 import Layout from "../shared/layout"
 
 class Tumble extends React.Component {
+  get items() {
+    return this.props.items.sort((a, b) => -a.props.date.localeCompare(b.props.date))
+  }
+
   render() {
     return (
       <Layout>
         <ol className="links with-icons">
-          {this.props.items.map(this.renderItem)}
+          {this.items.map(this.renderItem)}
         </ol>
       </Layout>
     )
