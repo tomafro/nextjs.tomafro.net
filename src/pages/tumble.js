@@ -36,7 +36,7 @@ export async function getStaticProps() {
   const readdir = util.promisify(fs.readdir)
 
   const itemFiles = await readdir(tumblePath)
-  const items = itemFiles.map(item => require("../data/tumble/" + item).content)
+  const items = itemFiles.map(item => require("../data/tumble/" + item).default)
 
   return { props: {items: items} }
 }

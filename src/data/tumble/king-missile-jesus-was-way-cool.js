@@ -1,7 +1,7 @@
 import Song from "../../shared/song";
-import { Lyrics } from "../../shared/tumble";
+import Lyrics from "../../shared/lyrics";
 
-export const content = (
+export default (
   <Song date="2019-09-18" artist="King Missile" title="Jesus was Way Cool" code="0Tos24ah4Q1OSe1qBH9TBW">
     <Lyrics>
       He turned water into wine<br />
