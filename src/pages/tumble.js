@@ -1,21 +1,22 @@
 import Layout from "../shared/layout"
-import itemFiles from "../data/tumble.json"
 
-function Tumble({items}) {
-  return (
-    <Layout>
-      <ol className="links with-icons">
-      {items.map(item => (
-        <li key={item.props.date}>
-          <span className="fa-li"><i className={item.props.icon}></i></span>
-          <p>
-          {item}
-          </p>
-        </li>
-      ))}
-      </ol>
-    </Layout>
-  )
+class Tumble extends React.Component {
+  render() {
+    return (
+      <Layout>
+        <ol className="links with-icons">
+          {this.props.items.map(item => (
+            <li key={item.props.date}>
+              <span className="fa-li"><i className={item.props.icon}></i></span>
+              <p>
+                {item}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </Layout>
+    )
+  }
 }
 
 export async function getStaticProps() {
