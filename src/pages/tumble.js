@@ -1,4 +1,4 @@
-import Layout from "../shared/layout"
+import Layout from "../components/layout"
 
 class Tumble extends React.Component {
   get items() {
