@@ -5,16 +5,20 @@ class Tumble extends React.Component {
     return (
       <Layout>
         <ol className="links with-icons">
-          {this.props.items.map(item => (
-            <li key={item.props.date}>
-              <span className="fa-li"><i className={item.props.icon}></i></span>
-              <p>
-                {item}
-              </p>
-            </li>
-          ))}
+          {this.props.items.map(this.renderItem)}
         </ol>
       </Layout>
+    )
+  }
+
+  renderItem(item) {
+    return (
+      <li key={item.props.date}>
+        <span className="fa-li"><i className={item.props.icon}></i></span>
+        <p>
+          {item}
+        </p>
+      </li>
     )
   }
 }
