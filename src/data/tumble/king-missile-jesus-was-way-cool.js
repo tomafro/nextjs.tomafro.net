@@ -1,7 +1,8 @@
-import { SpotifySong, Lyrics } from "../../shared/tumble";
+import Song from "../../shared/song";
+import Lyrics from "../../shared/tumble";
 
 export const content = (
-  <SpotifySong date="2019-09-18" artist="King Missile" title="Jesus was Way Cool" code="0Tos24ah4Q1OSe1qBH9TBW">
+  <Song date="2019-09-18" artist="King Missile" title="Jesus was Way Cool" code="0Tos24ah4Q1OSe1qBH9TBW">
     <Lyrics>
       He turned water into wine<br />
       And if he wanted to<br />
@@ -9,5 +10,5 @@ export const content = (
       Or sugar into cocaine<br />
       Or vitamin pills into amphetamines
     </Lyrics>
-  </SpotifySong>
+  </Song>
 )

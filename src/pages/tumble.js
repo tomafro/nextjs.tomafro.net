@@ -29,7 +29,7 @@ export async function getStaticProps() {
   const util = await import('util')
 
   const tumblePath = path.join(process.cwd(), "/src/data/tumble")
-  const readdir = util.promisify(fs.readdir);
+  const readdir = util.promisify(fs.readdir)
 
   const itemFiles = await readdir(tumblePath)
   const items = itemFiles.map(item => require("../data/tumble/" + item).content)
