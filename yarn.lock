@@ -901,10 +901,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@next/polyfill-nomodule@9.2.3-canary.22":
-  version "9.2.3-canary.22"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.22.tgz#2642f403d0c509da05bb794547783f2fd87799b2"
-  integrity sha512-K1CvO9aNWUBPQVIYr/Qjq3sRbSfv0xO5+6DzL2+s/V0dGN4A1q/xeWHfNxLaw/GDCBrIMiEsA2eYjdPUmaCvHg==
+"@next/polyfill-nomodule@9.2.3-canary.26":
+  version "9.2.3-canary.26"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.26.tgz#12dd27014f5f919c7d19d9019a0201a8cf68c0f4"
+  integrity sha512-YW8AB2z2NLHMBOqa/agzrv7AD1tUJMQu77vNXwCNRCbxhEM81Kq5GVzCDXQIG717PH38/fi9z62I4zaX8xe5hQ==
 
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
@@ -4300,10 +4300,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next@v9.2.3-canary.22:
-  version "9.2.3-canary.22"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.22.tgz#14f162f3248fbe240dc019e9241a946e411e46b0"
-  integrity sha512-B2YXRcTxORsO+Wvq5OdxmXfs6qLSr0fVDWZkTVQxaomDYI7maZ8be+DQ5RbhkXcYS7MdGasm/4OdKOlwg+0iAg==
+next@v9.2.3-canary.26:
+  version "9.2.3-canary.26"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.26.tgz#3c34667b7a6e4dc4c70ab6e7188ed7c2213ae785"
+  integrity sha512-5IzKvwr0s3mX/siYoA9fFZuMZBz50aeho7cKxFGu8Ty3+qrcuf0Ooh8r9w7/yh4eEp4Gcfr+GoOnQaOTEsEcIg==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.0.0"
     "@babel/core" "7.7.2"
@@ -4321,7 +4321,7 @@ next@v9.2.3-canary.22:
     "@babel/preset-typescript" "7.7.2"
     "@babel/runtime" "7.7.2"
     "@babel/types" "7.7.4"
-    "@next/polyfill-nomodule" "9.2.3-canary.22"
+    "@next/polyfill-nomodule" "9.2.3-canary.26"
     amphtml-validator "1.0.30"
     async-retry "1.2.3"
     async-sema "3.0.0"
