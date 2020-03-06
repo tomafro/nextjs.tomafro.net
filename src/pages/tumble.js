@@ -2,7 +2,8 @@ import Layout from "../components/layout"
 
 class Tumble extends React.Component {
   get items() {
-    return this.props.items.sort((a, b) => -a.props.date.localeCompare(b.props.date))
+    const items = this.props.paths.map(path => require("../data/tumble/" + path).default)
+    return items.sort((a, b) => -a.props.date.localeCompare(b.props.date))
   }
 
   render() {
@@ -19,9 +20,9 @@ class Tumble extends React.Component {
     return (
       <li key={item.props.date}>
         <span className="fa-li"><i className={item.props.icon}></i></span>
-        <p>
+        <div>
           {item}
-        </p>
+        </div>
       </li>
     )
   }
@@ -35,10 +36,10 @@ export async function getStaticProps() {
   const tumblePath = path.join(process.cwd(), "/src/data/tumble")
   const readdir = util.promisify(fs.readdir)
 
-  const itemFiles = await readdir(tumblePath)
-  const items = itemFiles.map(item => require("../data/tumble/" + item).default)
+  const paths = await readdir(tumblePath)
+  //const items = itemFiles.map(item => require("../data/tumble/" + item).default)
 
-  return { props: {items: items} }
+  return { props: {paths: paths} }
 }
 
 export default Tumble
