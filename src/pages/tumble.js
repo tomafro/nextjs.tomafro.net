@@ -1,9 +1,20 @@
 import Layout from "../components/layout"
 
+class Item {
+  constructor(path) {
+    this.path = path
+    this.content = require("../data/tumble/" + path).default
+  }
+
+  get date() {
+    return "2020-01-01"
+  }
+}
+
 class Tumble extends React.Component {
   get items() {
-    const items = this.props.paths.map(path => require("../data/tumble/" + path).default)
-    return items.sort((a, b) => -a.props.date.localeCompare(b.props.date))
+    const items = this.props.paths.map(path => new Item(path))
+    return items.sort((a, b) => -a.date.localeCompare(b.date))
   }
 
   render() {
@@ -18,10 +29,10 @@ class Tumble extends React.Component {
 
   renderItem(item) {
     return (
-      <li key={item.props.date}>
-        <span className="fa-li"><i className={item.props.icon}></i></span>
+      <li key={item.date}>
+        <span className="fa-li"><i className={item.content.props.icon}></i></span>
         <div>
-          {item}
+          {item.content}
         </div>
       </li>
     )
