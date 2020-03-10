@@ -1,13 +1,16 @@
 import Layout from "../components/layout"
 
+const pathRx = /(?<date>\d{4}-\d{2}-\d{2})/
+
 class Item {
   constructor(path) {
     this.path = path
+    this.pathData = pathRx.exec(path).groups
     this.content = require("../data/tumble/" + path).default
   }
 
   get date() {
-    return "2020-01-01"
+    return this.pathData.date
   }
 }
 
@@ -29,7 +32,7 @@ class Tumble extends React.Component {
 
   renderItem(item) {
     return (
-      <li key={item.date}>
+      <li key={item.path}>
         <span className="fa-li"><i className={item.content.props.icon}></i></span>
         <div>
           {item.content}
