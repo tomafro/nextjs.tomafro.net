@@ -1,6 +1,6 @@
 import Layout from "../components/layout"
 
-const pathRx = /(?<date>\d{4}-\d{2}-\d{2})/
+const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.js/
 
 class Item {
   constructor(path) {
@@ -11,6 +11,10 @@ class Item {
 
   get date() {
     return this.pathData.date
+  }
+
+  get slug() {
+    return this.pathData.slug
   }
 }
 
@@ -32,7 +36,7 @@ class Tumble extends React.Component {
 
   renderItem(item) {
     return (
-      <li key={item.path}>
+      <li key={item.date + "-" + item.slug}>
         <span className="fa-li"><i className={item.content.props.icon}></i></span>
         <div>
           {item.content}
