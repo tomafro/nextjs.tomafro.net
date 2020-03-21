@@ -47,16 +47,8 @@ class Tumble extends React.Component {
 }
 
 export async function getStaticProps() {
-  const path = await import('path')
-  const fs = await import("fs")
-  const util = await import('util')
-
-  const tumblePath = path.join(process.cwd(), "/src/data/tumble")
-  const readdir = util.promisify(fs.readdir)
-
-  const paths = await readdir(tumblePath)
-  //const items = itemFiles.map(item => require("../data/tumble/" + item).default)
-
+  const loader = await import("../support/loader")
+  const paths = await loader.findPaths("/src/data/tumble")
   return { props: {paths: paths} }
 }
 
