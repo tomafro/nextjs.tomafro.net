@@ -1,4 +1,4 @@
-import Quote from "../../components/quote"
+import Quote from "components/quote"
 
 export default (
   <Quote url="https://www.theatlantic.com/science/archive/2018/11/brazil-termite-murundus-mounds-space-4000-years-old/576160/">

@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "components/layout"
 
 const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.js/
 
@@ -47,7 +47,7 @@ class Tumble extends React.Component {
 }
 
 export async function getStaticProps() {
-  const loader = await import("../support/loader")
+  const loader = await import("support/loader")
   const paths = await loader.findPaths("/src/data/tumble")
   return { props: {paths: paths} }
 }

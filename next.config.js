@@ -1,4 +1,7 @@
 const withSass = require('@zeit/next-sass')
+
 module.exports = withSass({
-  /* config options here */
+  experimental: {
+    jsconfigPaths: true // enables it for both jsconfig.json and tsconfig.json
+  }
 })

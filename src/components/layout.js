@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
-import style from "../assets/css/style.scss"
+import style from "assets/css/style.scss"
 
 export default ({children}) => (
   <>
