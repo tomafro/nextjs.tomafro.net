@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.12.1",
     "@zeit/next-sass": "^1.0.1",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
