@@ -1,4 +1,4 @@
-export const Song = ({title, artist, code, children}) => {
+const Song = ({title, artist, code, children}) => {
   const url = `https://open.spotify.com/track/${code}`
   const embedUrl = `https://open.spotify.com/embed/track/${code}`
 

@@ -1,4 +1,4 @@
-export const Quote = ({children}) => {
+const Quote = ({children}) => {
   return (
     <blockquote className="quote">
       {children}
