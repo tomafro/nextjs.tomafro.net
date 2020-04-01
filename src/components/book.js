@@ -1,7 +1,8 @@
 const Book = ({title, artist, code, children}) => {
   return (
     <>
-      <figure><img src=""/>
+      <figure>
+        { children }
         <figcaption><a href="{ url }">{ title }</a></figcaption>
       </figure>
     </>

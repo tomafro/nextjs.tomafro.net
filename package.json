@@ -11,9 +11,12 @@
     "@zeit/next-sass": "^1.0.1",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
+    "image-trace-loader": "^1.0.2",
     "next": "v9.3.2",
+    "next-optimized-images": "^2.5.5",
     "node-sass": "^4.13.1",
     "react": "16.13.0",
-    "react-dom": "16.13.0"
+    "react-dom": "16.13.0",
+    "webp-loader": "^0.6.0"
   }
 }

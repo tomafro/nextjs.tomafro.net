@@ -1,7 +1,7 @@
 export async function findPaths(directory) {
-  const path = await import('path')
+  const path = await import("path")
   const fs = await import("fs")
-  const util = await import('util')
+  const util = await import("util")
 
   const tumblePath = path.join(process.cwd(), directory)
   const readdir = util.promisify(fs.readdir)
