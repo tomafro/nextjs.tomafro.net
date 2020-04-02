@@ -12,6 +12,7 @@
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
     "image-trace-loader": "^1.0.2",
+    "lqip-loader": "^2.2.0",
     "next": "v9.3.2",
     "next-optimized-images": "^2.5.5",
     "node-sass": "^4.13.1",
