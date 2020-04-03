@@ -23,7 +23,7 @@ const Image = ({ src, title, alt, maxWidth = 720, maxHeight = 720}) => {
   return (
     <>
       <picture>
-        <source srcSet={webp} type="image/webp"/>
+        {/* <source srcSet={webp} type="image/webp"/> */}
         <source srcSet={main.srcSet}/>
         <img loading="lazy" title={title} alt={alt} width={width} height={height} style={{backgroundImage: `url(${fallback})`, backgroundSize: "cover"}}  />
       </picture>
