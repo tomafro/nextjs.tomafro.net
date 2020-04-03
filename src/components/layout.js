@@ -1,12 +1,13 @@
 import Head from "next/head"
 import Link from "next/link"
 
-export default ({children}) => (
+export default ({children, title}) => (
   <>
     <Head>
       <meta name="viewport" content="width=520"></meta>
       <link href="https://fonts.googleapis.com/css?family=Rubik:500,700%7CMerriweather%7CFira+Mono&display=swap" rel="stylesheet"/>
       <script src="https://kit.fontawesome.com/6da83d860a.js"></script>
+      <title>{title} - Tom Ward's Blog</title>
     </Head>
     <header>
       <div className="column">

@@ -26,7 +26,7 @@ class Tumble extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <Layout title="Tumble">
         <ol className="links with-icons">
           {this.items.map(this.renderItem)}
         </ol>
