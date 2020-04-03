@@ -8,17 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
     "image-trace-loader": "^1.0.2",
     "lqip-loader": "^2.2.0",
     "next": "v9.3.2",
     "next-optimized-images": "^2.5.5",
-    "node-sass": "^4.13.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "responsive-loader": "^1.2.0",
+    "sass": "^1.26.3",
     "sharp": "^0.25.2",
     "webp-loader": "^0.6.0"
   }
