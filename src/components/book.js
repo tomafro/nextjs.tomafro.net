@@ -1,9 +1,9 @@
-const Book = ({title, artist, code, children}) => {
+const Book = ({title, author, url, children}) => {
   return (
     <>
       <figure>
         { children }
-        <figcaption><a href="{ url }">{ title }</a></figcaption>
+        <figcaption><a href={ url }>{ title }</a></figcaption>
       </figure>
     </>
   )
