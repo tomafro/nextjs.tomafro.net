@@ -14,7 +14,7 @@ const Song = ({title, artist, code, children}) => {
 }
 
 Song.defaultProps = {
-  icon: "fad fa-music"
+  icon: "music"
 }
 
 export default Song

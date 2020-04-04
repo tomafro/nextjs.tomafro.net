@@ -1,4 +1,5 @@
 import Layout from "components/layout"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.js/
 
@@ -37,7 +38,7 @@ class Tumble extends React.Component {
   renderItem(item) {
     return (
       <li key={item.date + "-" + item.slug}>
-        <span className="fa-li"><i className={item.content.props.icon}></i></span>
+        <span className="fa-li"><FontAwesomeIcon icon="music" /></span>
         <div>
           {item.content}
         </div>
