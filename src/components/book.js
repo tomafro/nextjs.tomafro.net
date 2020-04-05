@@ -10,7 +10,7 @@ const Book = ({title, author, url, children}) => {
 }
 
 Book.defaultProps = {
-  icon: "fad fa-book"
+  icon: "book"
 }
 
 export default Book

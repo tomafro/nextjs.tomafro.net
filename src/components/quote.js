@@ -7,7 +7,7 @@ const Quote = ({children}) => {
 }
 
 Quote.defaultProps = {
-  icon: "fas fa-quote-left"
+  icon: "quote-left"
 }
 
 export default Quote

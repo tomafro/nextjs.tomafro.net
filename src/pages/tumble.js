@@ -8,6 +8,7 @@ class Item {
     this.path = path
     this.pathData = pathRx.exec(path).groups
     this.content = require("../data/tumble/" + path).default
+    this.icon = this.content.props.icon
   }
 
   get date() {
@@ -38,7 +39,7 @@ class Tumble extends React.Component {
   renderItem(item) {
     return (
       <li key={item.date + "-" + item.slug}>
-        <span className="fa-li"><FontAwesomeIcon icon="music" /></span>
+        <span className="fa-li"><FontAwesomeIcon icon={item.icon} /></span>
         <div>
           {item.content}
         </div>

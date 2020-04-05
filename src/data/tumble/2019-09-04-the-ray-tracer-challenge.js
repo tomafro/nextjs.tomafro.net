@@ -1,4 +1,4 @@
-import Image from "components/image"
+import { Image } from "components"
 import Book from "components/book"
 
 export default (
