@@ -39,7 +39,7 @@ class Tumble extends React.Component {
   renderItem(item) {
     return (
       <li key={item.date + "-" + item.slug}>
-        <span className="fa-li"><FontAwesomeIcon icon={item.icon} /></span>
+        <span className="fa-li"><FontAwesomeIcon icon={item.icon}/></span>
         <div>
           {item.content}
         </div>
