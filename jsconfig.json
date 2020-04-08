@@ -2,6 +2,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "projects": [
+        "/lib/projects"
+      ],
       "components": [
         "./lib/components.js"
       ],
