@@ -1,7 +1,16 @@
+function mainImage(src, maxWidth) {
+  if (maxWidth == 320) {
+    return require("../assets/images/" + src + "?resize&sizes[]=320&sizes[]=640&sizes[]=1280&sizes[]=2560")
+  }
+  else {
+    return require("../assets/images/" + src + "?resize&sizes[]=360&sizes[]=720&sizes[]=1440&sizes[]=2880")
+  }
+}
+
 const Image = ({ src, title, alt, maxWidth = 720, maxHeight = 720}) => {
   console.log(maxWidth, maxHeight)
   const full = require("../assets/images/" + src + "?resize")
-  const main = require("../assets/images/" + src + "?resize&sizes[]=360&sizes[]=720&sizes[]=1440&sizes[]=2880")
+  const main = mainImage(src, maxWidth)
   const webp = require("../assets/images/" + src + "?webp")
   const fallback = require("../assets/images/" + src + "?lqip")
 
