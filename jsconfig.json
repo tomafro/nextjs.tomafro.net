@@ -3,19 +3,19 @@
     "baseUrl": ".",
     "paths": {
       "components": [
-        "./src/components.js"
+        "./lib/components.js"
       ],
       "components/*": [
-        "./src/components/*"
+        "./lib/components/*"
       ],
       "assets/*": [
-        "./src/assets/*"
+        "./lib/assets/*"
       ],
       "images/*": [
-        "./src/assets/images/*"
+        "./lib/assets/images/*"
       ],
       "support/*": [
-        "./src/support/*"
+        "./lib/support/*"
       ]
     }
   }

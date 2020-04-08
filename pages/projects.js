@@ -4,7 +4,7 @@ import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 
 class Projects extends React.Component {
   get projects() {
-    return this.props.paths.map(path => require("../pages/_projects/" + path).default)
+    return this.props.paths.map(path => require("../lib/projects/" + path).default)
   }
 
   render() {
@@ -30,7 +30,7 @@ class Projects extends React.Component {
 
 export async function getStaticProps() {
   const loader = await import("support/loader")
-  const paths = await loader.findPaths("/src/pages/_projects")
+  const paths = await loader.findPaths("/lib/projects")
   return { props: {paths: paths.sort() } }
 }
 
