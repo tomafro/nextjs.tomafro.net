@@ -7,7 +7,7 @@ class Item {
   constructor(path) {
     this.path = path
     this.pathData = pathRx.exec(path).groups
-    this.content = require("../data/tumble/" + path).default
+    this.content = require("../pages/_links/" + path).default
     this.icon = this.content.props.icon
   }
 
@@ -50,7 +50,7 @@ class Tumble extends React.Component {
 
 export async function getStaticProps() {
   const loader = await import("support/loader")
-  const paths = await loader.findPaths("/src/data/tumble")
+  const paths = await loader.findPaths("/src/pages/_links")
   return { props: {paths: paths} }
 }
 
