@@ -50,7 +50,7 @@ class Tumble extends React.Component {
 
 export async function getStaticProps() {
   const loader = await import("support/loader")
-  const paths = await loader.findPaths("/lib/links")
+  const paths = await loader.findPaths("links")
   return { props: {paths: paths} }
 }
 
