@@ -7,7 +7,7 @@ class Item {
   constructor(path) {
     this.path = path
     this.pathData = pathRx.exec(path).groups
-    this.content = require("../lib/links/" + path).default
+    this.content = require("links/" + path).default
     this.icon = this.content.props.icon
   }
 

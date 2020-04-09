@@ -5,6 +5,12 @@
       "projects": [
         "/lib/projects"
       ],
+      "links": [
+        "/lib/links"
+      ],
+      "images": [
+        "/assets/images"
+      ],
       "components": [
         "./lib/components.js"
       ],
@@ -13,9 +19,6 @@
       ],
       "assets/*": [
         "./lib/assets/*"
-      ],
-      "images/*": [
-        "./lib/assets/images/*"
       ],
       "support/*": [
         "./lib/support/*"
