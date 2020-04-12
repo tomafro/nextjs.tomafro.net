@@ -1,7 +1,7 @@
 import Layout from "components/layout"
 
 export default () => (
-  <Layout>
+  <Layout title="About me">
     <h1>About me</h1>
     <p>
     I'm a London based software developer, writing Clojure for <a href="https://farill.io">Farillio</a>.
