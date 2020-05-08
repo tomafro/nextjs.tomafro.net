@@ -1,5 +1,6 @@
-import Layout from "components/layout"
-import { Project } from "components"
+import { Layout, Project } from "components"
+
+import { fragmentFor } from "fragments"
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
@@ -21,27 +22,17 @@ class Projects extends React.Component {
   }
 
   renderProject(project) {
-    if (project.default.isMDXComponent) {
-      const MDX = project.default
-      const metadata = project.metadata || {}
-      console.log(metadata.url)
-      return (
-        <li key={metadata.url} >
-          <span className="fa-li"><FontAwesomeIcon icon={faCodeBranch} /></span>
-          <Project title={metadata.title} url={metadata.url}>
-            <MDX />
-          </Project>
-        </li>
-      )
-    }
-    else {
-      return (
-        <li key={project.default.props.url}>
-          <span className="fa-li"><FontAwesomeIcon icon={faCodeBranch} /></span>
-          { project.default }
-        </li>
-      )
-    }
+    const { content, metadata } = fragmentFor(project)
+
+
+    return (
+      <li key={metadata.url} >
+        <span className="fa-li"><FontAwesomeIcon icon={faCodeBranch} /></span>
+        <Project title={metadata.title} url={metadata.url}>
+          { content }
+        </Project>
+      </li>
+    )
   }
 }
 
