@@ -1,22 +1,36 @@
 import Layout from "components/layout"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.js/
+import { fragmentFor } from "fragments"
+
+const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.(?<ext>js|mdx)/
 
 class Item {
   constructor(path) {
-    this.path = path
-    this.pathData = pathRx.exec(path).groups
-    this.content = require("links/" + path).default
-    this.icon = this.content.props.icon
+    const module = require("links/" + path)
+    this.fragment = fragmentFor(module)
+    this.metadata = {
+      ...module,
+      ...this.fragment.content.props,
+      ...pathRx.exec(path).groups,
+      ...this.fragment.metadata
+    }
+  }
+
+  get content() {
+    return this.fragment.content
   }
 
   get date() {
-    return this.pathData.date
+    return this.metadata.date
   }
 
   get slug() {
-    return this.pathData.slug
+    return this.metadata.slug
+  }
+
+  get icon() {
+    return this.metadata.icon
   }
 }
 

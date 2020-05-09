@@ -15,7 +15,7 @@ class Projects extends React.Component {
       <Layout title="Projects">
         <h1>Recent Projects</h1>
         <ol className="links with-icons">
-          {this.projects.map(this.renderProject)}
+          { this.projects.map(this.renderProject) }
         </ol>
       </Layout>
     )
@@ -23,7 +23,6 @@ class Projects extends React.Component {
 
   renderProject(project) {
     const { content, metadata } = fragmentFor(project)
-
 
     return (
       <li key={metadata.url} >
