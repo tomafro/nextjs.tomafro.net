@@ -11,7 +11,7 @@ export const config = {
 
 class Projects extends React.Component {
   get projects() {
-    return this.props.paths.map(path => require("projects/" + path))
+    return this.props.paths.map(path => require("data/projects/" + path))
   }
 
   render() {
@@ -40,9 +40,7 @@ class Projects extends React.Component {
 }
 
 export async function getStaticProps() {
-  const loader = await import("support/loader")
-  const paths = await loader.findPaths("projects")
-  return { props: { paths: paths.sort() } }
+  return { props: { paths: require("lib/data").projectPaths() } }
 }
 
 export default Projects
