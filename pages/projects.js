@@ -11,7 +11,7 @@ export const config = {
 
 class Projects extends React.Component {
   get projects() {
-    return this.props.paths.map(path => require("data/projects/" + path))
+    return require("lib/data").load(this.props.paths)
   }
 
   render() {
