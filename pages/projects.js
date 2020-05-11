@@ -5,6 +5,10 @@ import { fragmentFor } from "fragments"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 
+export const config = {
+  unstable_runtimeJS: false
+}
+
 class Projects extends React.Component {
   get projects() {
     return this.props.paths.map(path => require("projects/" + path))
