@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { fragmentFor } from "fragments"
 
-export const config = {
-  unstable_runtimeJS: false,
-}
+export * from "page/config"
 
 const pathRx = /(?<date>\d{4}-\d{2}-\d{2})-(?<slug>.*)\.(?<ext>js|mdx)/
 

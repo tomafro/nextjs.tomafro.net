@@ -5,13 +5,11 @@ import { fragmentFor } from "fragments"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 
-export const config = {
-  unstable_runtimeJS: false
-}
+export * from "page/config"
 
 class Projects extends React.Component {
   get projects() {
-    return require("lib/data").load(this.props.paths)
+    return require("data").load(this.props.paths)
   }
 
   render() {
@@ -40,7 +38,7 @@ class Projects extends React.Component {
 }
 
 export async function getStaticProps() {
-  return { props: { paths: require("lib/data").projectPaths() } }
+  return { props: { paths: require("data").projectPaths() } }
 }
 
 export default Projects

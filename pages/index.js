@@ -1,8 +1,6 @@
 import Layout from "components/layout"
 
-export const config = {
-  unstable_runtimeJS: false,
-}
+export * from "page/config"
 
 export default () => (
   <Layout title="About me">

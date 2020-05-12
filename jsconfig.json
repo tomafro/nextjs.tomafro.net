@@ -2,6 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "data": [
+        "lib/data"
+      ],
+      "page/config": [
+        "lib/page/config"
+      ],
       "projects": [
         "/lib/projects"
       ],
