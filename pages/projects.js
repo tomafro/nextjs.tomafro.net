@@ -1,11 +1,28 @@
 import { Layout, Project } from "components"
-
-import { fragmentFor } from "fragments"
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export * from "page/config"
+
+function contentFor(module) {
+  if (module.default.isMDXComponent) {
+    const MDX = module.default
+    return (
+      <>
+        <MDX />
+      </>
+    )
+  }
+  else {
+    return module.default
+  }
+}
+
+function itemFor(module) {
+  return {
+    children: contentFor(module),
+    ...module
+  }
+}
 
 class Projects extends React.Component {
   get projects() {
@@ -24,14 +41,12 @@ class Projects extends React.Component {
   }
 
   renderProject(project) {
-    const { content, metadata } = fragmentFor(project)
+    const item = itemFor(project)
 
     return (
-      <li key={metadata.url} >
-        <span className="fa-li"><FontAwesomeIcon icon={faCodeBranch} /></span>
-        <Project title={metadata.title} url={metadata.url}>
-          { content }
-        </Project>
+      <li key={item.url} >
+        <span className="fa-li"><FontAwesomeIcon icon="code-branch" /></span>
+        <Project {...item}/>
       </li>
     )
   }
