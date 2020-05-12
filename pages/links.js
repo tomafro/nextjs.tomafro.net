@@ -2,10 +2,10 @@ import { Layout, Project, ListWithIcons } from "components"
 
 export * from "page/config"
 
-function listItem({url, children, icon}) {
+function listItem({content, icon, path}) {
   return (
-    <ListWithIcons.Item key={url} icon={icon}>
-      { children }
+    <ListWithIcons.Item key={path} icon={icon}>
+      { content }
     </ListWithIcons.Item>
   )
 }
