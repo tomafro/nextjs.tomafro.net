@@ -1,4 +1,5 @@
-import { Layout, Project, ListWithIcons } from "components"
+import { Layout, ListWithIcons } from "components"
+import { load, byDate } from "data"
 
 export * from "page/config"
 
@@ -11,7 +12,7 @@ function listItem({content, icon, path}) {
 }
 
 export default ({ paths }) => {
-  const items = require("data").load(paths)
+  const items = load(paths).sort(byDate).reverse()
   return (
     <Layout title="Projects">
       <ListWithIcons>
