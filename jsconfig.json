@@ -20,6 +20,9 @@
       "components": [
         "./lib/components.js"
       ],
+      "mdx": [
+        "./lib/mdx.js"
+      ],
       "fragments": [
         "./lib/fragments.js"
       ],

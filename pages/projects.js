@@ -2,10 +2,10 @@ import { Layout, Project, ListWithIcons } from "components"
 
 export * from "page/config"
 
-function projectItem(project) {
+function projectItem({content, url, ...metadata}) {
   return (
-    <ListWithIcons.Item key={project.url} icon="code-branch">
-      <Project {...project} />
+    <ListWithIcons.Item key={url} icon="code-branch">
+      <Project url={url} {...metadata}>{ content }</Project>
     </ListWithIcons.Item>
   )
 }
