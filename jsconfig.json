@@ -20,11 +20,11 @@
       "components": [
         "./lib/components.js"
       ],
-      "markdown": [
-        "./lib/markdown.js"
+      "transformations": [
+        "./lib/transformations.js"
       ],
-      "markdown/*": [
-        "./lib/markdown/*"
+      "transformations/*": [
+        "./lib/transformations/*"
       ],
       "fragments": [
         "./lib/fragments.js"
