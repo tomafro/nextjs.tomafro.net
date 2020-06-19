@@ -42,6 +42,7 @@ module.exports = withMDX({
         const rx = /(?<name>[^\/]+)\.(?<ext>jpg|png)/
         const pathInfo = rx.exec(inputPath).groups
 
+
         console.log(inputImageMetadata)
 
         const image = {
