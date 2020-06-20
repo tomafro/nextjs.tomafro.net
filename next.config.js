@@ -12,6 +12,9 @@ const createVariants = async function(inputPath) {
   const rx = /(?<name>[^\/]+)\.(?<ext>jpg|png)/
   const pathInfo = rx.exec(inputPath).groups
 
+  fs.mkdirSync('public/images', { recursive: true })
+  fs.mkdirSync('data/images', { recursive: true })
+
   console.log(inputImageMetadata)
 
   const image = {
