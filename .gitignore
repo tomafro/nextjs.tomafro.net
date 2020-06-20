@@ -26,3 +26,7 @@ yarn-error.log*
 
 .now
 .yarn
+
+# generated
+/public/images
+/data/images/*.js
