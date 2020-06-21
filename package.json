@@ -20,6 +20,7 @@
     "file-loader": "^6.0.0",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",
+    "hasha": "^5.2.0",
     "lqip": "^2.1.0",
     "next": "9.4.0",
     "prebuild-webpack-plugin": "^1.1.0",

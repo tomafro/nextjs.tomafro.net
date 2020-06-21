@@ -3,39 +3,44 @@ const withMDX = require('@next/mdx')();
 const sharp = require('sharp')
 const lqip = require('lqip')
 const fs = require('fs')
+const hasha = require('hasha')
 
-const destination = 'images'
+const createVariants = async function(imagePage) {
+  const hash = hasha.fromFileSync(imagePage, { algorithm: 'md5' })
+  console.log(hash)
 
-const createVariants = async function(inputPath) {
-  const inputImage = sharp(inputPath)
+  const inputImage = sharp(imagePage)
   const inputImageMetadata = await inputImage.metadata()
   const rx = /(?<name>[^\/]+)\.(?<ext>jpg|png)/
-  const pathInfo = rx.exec(inputPath).groups
+  const pathInfo = rx.exec(imagePage).groups
 
-  fs.mkdirSync('public/images', { recursive: true })
+  const destinationBase = `images/${hash}`
+
+  fs.mkdirSync(`public/${destinationBase}`, { recursive: true })
   fs.mkdirSync('data/images', { recursive: true })
+
 
   console.log(inputImageMetadata)
 
   const image = {
     width: inputImageMetadata.width,
     height: inputImageMetadata.height,
-    lqip: await lqip.base64(inputPath)
+    lqip: await lqip.base64(imagePage)
   }
 
-  const sizes = [0.6, 0.36, 0.22, 0.13]
+  const sizes = [1.0, 0.6, 0.36, 0.22, 0.13]
 
   const pngVariants = sizes.map(size => {
     const width = Math.round(image.width * size)
-    const path = `${destination}/${pathInfo.name}.${width}.png`
-    sharp(inputPath).resize({ width: width }).png({ palette: true }).toFile(`public/${path}`)
+    const path = `${destinationBase}/${width}.png`
+    sharp(imagePage).resize({ width: width }).png({ palette: true }).toFile(`public/${path}`)
     return { type: "image/png", width: width, path: path }
   })
 
   const webpVariants = sizes.map(size => {
     const width = Math.round(image.width * size)
-    const path = `${destination}/${pathInfo.name}.${width}.webp`
-    sharp(inputPath).resize({ width: width }).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${path}`)
+    const path = `${destinationBase}/${width}.webp`
+    sharp(imagePage).resize({ width: width }).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${path}`)
     return { type: "image/webp", width: width, path: path }
   })
 
@@ -45,8 +50,8 @@ const createVariants = async function(inputPath) {
 
   console.log(variants)
 
-  await sharp(inputPath).png({ palette: true }).toFile(`public/${destination}/${pathInfo.name}.png`)
-  await sharp(inputPath).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${destination}/${pathInfo.name}.webp`)
+  // await sharp(imagePage).png({ palette: true }).toFile(`public/${destinationBase}.png`)
+  // await sharp(imagePage).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${destinationBase}.webp`)
 
   fs.writeFileSync(`data/images/${pathInfo.name}.js`,
     `export default {
