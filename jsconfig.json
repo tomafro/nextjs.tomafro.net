@@ -5,6 +5,9 @@
       "data": [
         "lib/data"
       ],
+      "data/images": [
+        "lib/data/images"
+      ],
       "page/config": [
         "lib/page/config"
       ],
