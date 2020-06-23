@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "data": [
+        "lib/data"
+      ],
+      "data/images": [
+        "lib/data/images"
+      ],
+      "page/config": [
+        "lib/page/config"
+      ],
+      "projects": [
+        "/lib/projects"
+      ],
+      "links": [
+        "/lib/links"
+      ],
+      "images": [
+        "/assets/images"
+      ],
+      "components": [
+        "./lib/components.js"
+      ],
+      "transformations": [
+        "./lib/transformations.js"
+      ],
+      "transformations/*": [
+        "./lib/transformations/*"
+      ],
+      "fragments": [
+        "./lib/fragments.js"
+      ],
+      "components/*": [
+        "./lib/components/*"
+      ],
+      "assets/*": [
+        "./lib/assets/*"
+      ],
+      "support/*": [
+        "./lib/support/*"
+      ]
+    }
+  }
+}
