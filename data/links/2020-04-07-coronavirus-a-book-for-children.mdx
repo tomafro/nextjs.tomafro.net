@@ -3,10 +3,12 @@ import image from "data/images/coronavirus-a-book-for-children"
 
 export const title = "Coronavirus: A Book for Children"
 export const url = "https://nosycrow.com/blog/released-today-free-information-book-explaining-coronavirus-children-illustrated-gruffalo-illustrator-axel-scheffler/"
+export const icon = "book"
 
-<Book title={title} url={url} >
+<figure>
   <Picture image={image}
       title="Coronavirus: A Book for Children"
       alt="Cover of the book 'Coronavirus: A Book for Children' showing illustrations of doctors, children washing hands, video calls with grandparents, and more"
       maxWidth="360" />
-</Book>
+  <figcaption><a href={ url }>{ title }</a></figcaption>
+</figure>
