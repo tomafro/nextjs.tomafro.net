@@ -1,4 +1,6 @@
-import { Layout, Project, ListWithIcons } from "components"
+import Head from "next/head"
+
+import { Project, ListWithIcons } from "components"
 
 export * from "page/config"
 
@@ -10,15 +12,18 @@ function projectItem({content, url, ...metadata}) {
   )
 }
 
-export default ({ paths }) => {
+export default function Projects({ paths }) {
   const projects = require("data").load(paths)
   return (
-    <Layout title="Projects">
-      <h1>Recent Projects</h1>
-      <ListWithIcons>
-        { projects.map(projectItem) }
-      </ListWithIcons>
-    </Layout>
+    <>
+    <Head>
+      <title>Projects</title>
+    </Head>
+    <h1>Recent Projects</h1>
+    <ListWithIcons>
+      { projects.map(projectItem) }
+    </ListWithIcons>
+    </>
   )
 }
 
