@@ -1,11 +1,13 @@
+export const url = "https://en.wikipedia.org/wiki/Blade_Runner"
+export const title = "Los Angeles, November, 2019 "
 export const icon = "film"
 
 import image from "data/images/los-angeles-november-2019"
 
 <figure icon="film">
-  <a href="https://en.wikipedia.org/wiki/Blade_Runner">
+  <a href={url}>
     <Picture image={image}
-      title="Coronavirus: A Book for Children"
-      alt="Cover of the book 'Coronavirus: A Book for Children' showing illustrations of doctors, children washing hands, video calls with grandparents, and more"/>
+      title={title}
+      alt={title}/>
   </a>
 </figure>

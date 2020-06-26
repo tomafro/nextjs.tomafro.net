@@ -5,18 +5,36 @@ const hasha = require('hasha')
 const glob = require("glob")
 
 
-const createVariants = async function (imagePage) {
-  const hash = hasha.fromFileSync(imagePage, { algorithm: 'md5' })
+async function resizePng(path, width, destination) {
+  await sharp(path).resize({ width: width }).png({ palette: true }).toFile(destination)
+}
+
+async function resizeWebP(path, width, destination) {
+  await sharp(path).resize({ width: width }).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(destination)
+}
+
+async function resizeJpeg(path, width, destination) {
+  await sharp(path).resize({ width: width }).jpeg().toFile(destination)
+}
+
+function createFormatVariants(path, basePath, widths, f, suffix, type) {
+  return widths.map(width => {
+    const destination = `${basePath}/${width}.${suffix}`
+    f(path, width, `public/${destination}`)
+    return { type: type, width: width, path: destination }
+  })
+}
+
+const createAllVariants = async function (imagePath) {
+  const hash = hasha.fromFileSync(imagePath, { algorithm: 'md5' })
   console.log(hash)
 
-  const inputImage = sharp(imagePage)
+  const inputImage = sharp(imagePath)
   const inputImageMetadata = await inputImage.metadata()
   const rx = /(?<name>[^\/]+)\.(?<ext>jpg|png)/
-  const pathInfo = rx.exec(imagePage).groups
+  const pathInfo = rx.exec(imagePath).groups
 
   const destinationBase = `images/${hash}`
-
-  console.log(destinationBase)
 
   fs.mkdirSync(`public/${destinationBase}`, { recursive: true })
   fs.mkdirSync('data/images', { recursive: true })
@@ -24,35 +42,26 @@ const createVariants = async function (imagePage) {
   console.log(inputImageMetadata)
 
   const image = {
-    width: inputImageMetadata.width,
-    height: inputImageMetadata.height,
-    lqip: await lqip.base64(imagePage)
+    ...inputImageMetadata,
+    lqip: await lqip.base64(imagePath)
   }
 
-  const sizes = [1.0, 0.6, 0.36, 0.22, 0.13]
+  const widths = [1.0, 0.6, 0.36, 0.22, 0.13].map(ratio => Math.round(image.width * ratio))
 
-  const pngVariants = sizes.map(size => {
-    const width = Math.round(image.width * size)
-    const path = `${destinationBase}/${width}.png`
-    sharp(imagePage).resize({ width: width }).png({ palette: true }).toFile(`public/${path}`)
-    return { type: "image/png", width: width, path: path }
-  })
+  var variants = createFormatVariants(imagePath, destinationBase, widths, resizeWebP, "webp", "image/webp")
 
-  const webpVariants = sizes.map(size => {
-    const width = Math.round(image.width * size)
-    const path = `${destinationBase}/${width}.webp`
-    sharp(imagePage).resize({ width: width }).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${path}`)
-    return { type: "image/webp", width: width, path: path }
-  })
+  if (image.format == "png") {
+    variants = variants.concat(createFormatVariants(imagePath, destinationBase, widths, resizePng, "png", "image/png"))
+  }
+  else if (image.format == "jpeg") {
+    variants = variants.concat(createFormatVariants(imagePath, destinationBase, widths, resizeJpeg, "jpg", "image/jpeg"))
+  }
 
-  const variants = webpVariants.concat(pngVariants).map(({ type, width, path }) => {
+  const variantJson = variants.map(({ type, width, path }) => {
     return `{ type: "${type}", width: ${width}, image: "/${path}"}`
   })
 
-  console.log(variants)
-
-  // await sharp(imagePage).png({ palette: true }).toFile(`public/${destinationBase}.png`)
-  // await sharp(imagePage).webp({ smartSubsample: true, reductionEffort: 6 }).toFile(`public/${destinationBase}.webp`)
+  console.log(variantJson)
 
   fs.writeFileSync(`data/images/${pathInfo.name}.js`,
     `export default {
@@ -60,14 +69,14 @@ const createVariants = async function (imagePage) {
     height: ${image.height},
     lqip: "${image.lqip}",
     variants: [
-      ${variants.join(",\n    ")}
+      ${variantJson.join(",\n    ")}
     ]
   }
-  `)
+`)
 }
 
 images = glob.sync('assets/images/*.+(png|jpg)', {})
 
 for (let index = 0; index < images.length; index++) {
-  createVariants(images[index])
+  createAllVariants(images[index])
 }
