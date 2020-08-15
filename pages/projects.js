@@ -2,7 +2,7 @@ import Head from "next/head"
 
 import { Project, ListWithIcons } from "components"
 
-export * from "page/config"
+export { config } from "page/config"
 
 function projectItem({content, url, ...metadata}) {
   return (

@@ -3,7 +3,7 @@ import Head from "next/head"
 import { ListWithIcons } from "components"
 import { load, byDate } from "data"
 
-export * from "page/config"
+export { config } from "page/config"
 
 function listItem({content, icon, path}) {
   return (
