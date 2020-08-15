@@ -10,4 +10,6 @@ export { config } from "page/config"
 
 `security find-internet-password -s <server> -w` reads the password for the given server from the OS X keychain.
 
-`who am i --ips|awk '{print $5}'` gets the IP address of your ssh client (from a host you're connected to)
+`who am i --ips|awk '{print $5}'` gets the IP address of your ssh client (from a host you're connected to).
+
+`xattr -d com.apple.quarantine <executable>` removes Apple's quarantine, getting past the "... cannot be opened because the developer cannot be verified" error.
