@@ -13,7 +13,7 @@ function listItem({content, icon, path}) {
   )
 }
 
-export default ({ paths }) => {
+export const Page = ({ paths }) => {
   const items = load(paths).sort(byDate).reverse()
   return (
     <>
@@ -26,6 +26,8 @@ export default ({ paths }) => {
     </>
   )
 }
+
+export default Page
 
 export async function getStaticProps() {
   return { props: { paths: require("data").linkPaths() } }

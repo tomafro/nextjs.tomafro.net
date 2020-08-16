@@ -9,6 +9,8 @@ library.add(fas, fab)
 
 import Layout from "components/layout"
 
-export default ({ Component, pageProps }) => {
+export const ComponentWithLayout = ({ Component, pageProps }) => {
   return <Layout><Component {...pageProps} /></Layout>
 }
+
+export default ComponentWithLayout
