@@ -2,7 +2,9 @@ import Head from "next/head"
 
 import { Project, ListWithIcons } from "components"
 
-export { config } from "page/config"
+export const config = {
+  unstable_runtimeJS: false
+}
 
 function projectItem({content, url, ...metadata}) {
   return (

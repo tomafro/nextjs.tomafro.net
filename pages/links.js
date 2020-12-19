@@ -3,7 +3,9 @@ import Head from "next/head"
 import { ListWithIcons } from "components"
 import { load, byDate } from "data"
 
-export { config } from "page/config"
+export const config = {
+  unstable_runtimeJS: false
+}
 
 function listItem({content, icon, path}) {
   return (
