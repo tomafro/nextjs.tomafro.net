@@ -9,13 +9,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@mdx-js/loader": "^1.6.19",
     "@mdx-js/mdx": "^1.6.19",
     "@next/mdx": "^10.0.0",
-    "@tomafro/fontawesome-svg-core": "^1.2.25",
-    "@tomafro/free-brands-svg-icons": "^5.11.2",
-    "@tomafro/free-solid-svg-icons": "^5.11.2",
-    "@tomafro/pro-solid-svg-icons": "^5.11.2",
+    "@tomafro/pro-solid-svg-icons": "^5.15.2",
     "file-loader": "^6.0.0",
     "fs": "^0.0.1-security",
     "glob": "^7.1.6",

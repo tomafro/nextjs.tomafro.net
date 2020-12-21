@@ -286,6 +286,32 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@fortawesome/fontawesome-common-types@^0.2.32":
+  version "0.2.32"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.32.tgz#3436795d5684f22742989bfa08f46f50f516f259"
+  integrity sha512-ux2EDjKMpcdHBVLi/eWZynnPxs0BtFVXJkgHIxXRl+9ZFaHPvYamAfCzeeQFqHRjuJtX90wVnMRaMQAAlctz3w==
+
+"@fortawesome/fontawesome-svg-core@^1.2.25":
+  version "1.2.32"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.32.tgz#da092bfc7266aa274be8604de610d7115f9ba6cf"
+  integrity sha512-XjqyeLCsR/c/usUpdWcOdVtWFVjPbDFBTQkn2fQRrWhhUoxriQohO2RWDxLyUM8XpD+Zzg5xwJ8gqTYGDLeGaQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
+
+"@fortawesome/free-brands-svg-icons@^5.11.2":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.15.1.tgz#1dc0563f4036639e53d24b8e532ea78a53ca2250"
+  integrity sha512-pkTZIWn7iuliCCgV+huDfZmZb2UjslalXGDA2PcqOVUYJmYL11y6ooFiMJkJvUZu+xgAc1gZgQe+Px12mZF0CA==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
+
+"@fortawesome/free-solid-svg-icons@^5.11.2":
+  version "5.15.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.1.tgz#e1432676ddd43108b41197fee9f86d910ad458ef"
+  integrity sha512-EFMuKtzRMNbvjab/SvJBaOOpaqJfdSap/Nl6hst7CgrJxwfORR1drdTV6q1Ib/JVzq4xObdTDcT6sqTaXMqfdg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
+
 "@hapi/accept@5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.1.tgz#068553e867f0f63225a506ed74e899441af53e10"
@@ -485,38 +511,12 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-10.0.3.tgz#276bec60eae18768f96baf8a52f668f657f50ab4"
   integrity sha512-XtzzPX2R4+MIyu1waEQUo2tiNwWVEkmObA6pboRCDTPOs4Ri8ckaIE08lN5A5opyF6GVN+IEq/J8KQrgsePsZQ==
 
-"@tomafro/fontawesome-common-types@^0.2.25", "@tomafro/fontawesome-common-types@^0.2.32":
-  version "0.2.25"
-  resolved "https://npm.pkg.github.com/download/@tomafro/fontawesome-common-types/0.2.25/3aa83683af0f24a787ed9b92cab525e2ebe6a45e13a3ff726eae6c524d7c14b8#a323211bd19c3379fed68fa3a5db77167970e604"
-  integrity sha512-+natTpSQLw3vSNJL8EIAkfIc1iVuz57MCt0+OqX4oZyID8jNX94w+dLJxHrnKg5vRqZ4iUvAZt2hg7nD/yeQmQ==
-
-"@tomafro/fontawesome-svg-core@^1.2.25":
-  version "1.2.25"
-  resolved "https://npm.pkg.github.com/download/@tomafro/fontawesome-svg-core/1.2.25/c95d1e8ecf08f21de6dd89522c117d4a8745f3d94bc9cd47c5acae476e7d87fd#5e62049ffbb20d8226665374243bf0416d068b2a"
-  integrity sha512-7yWifu425bU8oej5nRMvsAcJZ6G3oqZHSdIsC6M8fwOd+JMH77HkQN6/Eibr+AhbVjj/Hs7de2qjBPtSxLOGog==
+"@tomafro/pro-solid-svg-icons@^5.15.2":
+  version "5.15.2"
+  resolved "https://npm.pkg.github.com/download/@tomafro/pro-solid-svg-icons/5.15.2/1368d2b0463c128938972fb14caf100db8780ad843d6b4c0911a1c10969eaf19#34cab76f32964898fadeffa2c98fa6f54a0d5a08"
+  integrity sha512-kGjEF+6Pbc+/X8SXR6D5ddHccEgNG5rmWGM4BhUQqX5EOgROhg5Ukg4Lw6s1F4/4/fYejocbUNhWyUkPcmbHgw==
   dependencies:
-    "@tomafro/fontawesome-common-types" "^0.2.25"
-
-"@tomafro/free-brands-svg-icons@^5.11.2":
-  version "5.11.2"
-  resolved "https://npm.pkg.github.com/download/@tomafro/free-brands-svg-icons/5.11.2/5c62c275ebcf8d900fcd14688e0aaf96ae426cf97b5ddd1997e2cd5161b4c7b3#080231613c1fa3952a8df058dd951df833b8cd95"
-  integrity sha512-vfqucRFja8iT11rFvg9cfEwx0hTGebakJR4dBJRvPabzgfYXA2ncPSH99IpfGBf1669ayyOLbBf7+aT54pkjRA==
-  dependencies:
-    "@tomafro/fontawesome-common-types" "^0.2.25"
-
-"@tomafro/free-solid-svg-icons@^5.11.2":
-  version "5.11.2"
-  resolved "https://npm.pkg.github.com/download/@tomafro/free-solid-svg-icons/5.11.2/3430ab0c2679b98c8af2a1aa10cdc3a846572eaad41b265843caca473757c467#bd08fdabd123b050c911ffd4fa01f796d1c06d73"
-  integrity sha512-kzUhIigW8wntIP8DA2km/XfqqJ2Sy+Nwa1OTmc8J8isxe7s+lj8NceffI78ZhVf7IE2HWXzWmXsZj/pX6LFMNQ==
-  dependencies:
-    "@tomafro/fontawesome-common-types" "^0.2.25"
-
-"@tomafro/pro-solid-svg-icons@^5.11.2":
-  version "5.15.1"
-  resolved "https://npm.pkg.github.com/download/@tomafro/pro-solid-svg-icons/5.15.1/b22409258ea99b415ff6c1b1407b0cd507884b335f547c6fe85410b55dfc8927#395979e6ef30f8b13bda47f8f6d4fca32c8fd21c"
-  integrity sha512-lQGpNlg0s5Hofb/YsJkUYXRUfni9AYk3Tks03dS8dwbStu5tVODvmS+wqpJ02rO7wvtKZ+C/mnDa3U5q/9Vq8g==
-  dependencies:
-    "@tomafro/fontawesome-common-types" "^0.2.32"
+    "@fortawesome/fontawesome-common-types" "^0.2.32"
 
 "@types/hast@^2.0.0":
   version "2.3.1"
