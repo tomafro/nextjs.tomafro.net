@@ -25,6 +25,7 @@
     "next": "^10.0.0",
     "prebuild-webpack-plugin": "^1.1.0",
     "prism-react-renderer": "^1.1.0",
+    "prismjs": "^1.22.0",
     "react": "~17.0",
     "react-dom": "~17.0",
     "sass": "^1.26.5",
