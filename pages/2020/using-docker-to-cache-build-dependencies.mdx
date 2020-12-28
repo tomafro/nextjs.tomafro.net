@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 # Fast build dependencies with docker
 
 Recently at [farillio](https://farill.io) we've rewritten our CI pipeline, moving from [CircleCI](https://circleci.com/) to [buildkite](https://buildkite.com). We want our pipeline to finish as quickly as possible, so our build is split into several steps which run in parallel where possible. Each step is declared as a `rake` task, and run in a container via the [buildkite docker-compose plugin](https://github.com/buildkite-plugins/docker-compose-buildkite-plugin). To keep the build fast, it's vital these tasks start up as fast as possible, so we use our own pre-built docker image, with `ruby`, `java`, `node`, and more. When we need to upgrade one of these languages, we push a new image independently and change our build to point at it.
@@ -37,3 +39,5 @@ COPY --from=ruby ${GEM_HOME} ${GEM_HOME}
 COPY --from=ruby ${BUNDLE_BIN} ${BUNDLE_BIN}
 COPY --from=node-modules ${NODE_MODULES} ${NODE_MODULES}
 ```
+
+<Image src="/images/factorio-banner.jpg" width="616" height="353"/>
