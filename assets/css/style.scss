@@ -168,7 +168,9 @@ code {
 pre {
   padding: 0.5rem 1rem;
   background: rgb(235, 255, 255);
+  margin-bottom: 1rem;
   border-radius: 0.1rem;
+  word-wrap: break-word;
 
   code {
     padding: 0;

@@ -1,0 +1,39 @@
+# Fast build dependencies with docker
+
+Recently at [farillio](https://farill.io) we've rewritten our CI pipeline, moving from [CircleCI](https://circleci.com/) to [buildkite](https://buildkite.com). We want our pipeline to finish as quickly as possible, so our build is split into several steps which run in parallel where possible. Each step is declared as a `rake` task, and run in a container via the [buildkite docker-compose plugin](https://github.com/buildkite-plugins/docker-compose-buildkite-plugin). To keep the build fast, it's vital these tasks start up as fast as possible, so we use our own pre-built docker image, with `ruby`, `java`, `node`, and more. When we need to upgrade one of these languages, we push a new image independently and change our build to point at it.
+
+But as well as infrequently changing language and tool dependencies, we also use a lot of other libraries that are updated all the time. Things like ruby gems, npm libraries, clojars, and more. We want to be able to change these on any build, yet still have our independent steps start as quickly as possible.
+
+```dockerfile lineNumbers=true filename=Dockerfile.base
+FROM ubuntu:20.04 AS base
+
+...install all the tools needed for the build, such as
+ruby, node, yarn, etc...
+
+ENV GEM_HOME ${HOME}/ruby/gems
+ENV BUNDLE_PATH ${HOME}/ruby/bundle
+ENV BUNDLE_BIN ${HOME}/ruby/bin
+ENV NODE_MODULES ${HOME}/node_modules
+```
+
+```dockerfile filename=Dockerfile.app
+FROM farillio-buildkite:main as base
+
+FROM base as ruby
+
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+RUN bundle install
+
+FROM base as javascript
+
+COPY package.json package.json
+COPY yarn.lock yarn.lock
+RUN yarn install
+
+FROM base as build
+
+COPY --from=ruby ${GEM_HOME} ${GEM_HOME}
+COPY --from=ruby ${BUNDLE_BIN} ${BUNDLE_BIN}
+COPY --from=node-modules ${NODE_MODULES} ${NODE_MODULES}
+```
